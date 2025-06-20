@@ -1,0 +1,63 @@
+.savings-calculator {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
+  border: 2px solid #0076bb;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 118, 187, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.savings-calculator h2 {
+  color: #0076bb;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.savings-calculator__inputs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.savings-calculator__input-group {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.savings-calculator__input-group label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.savings-calculator__input-group input {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.savings-calculator__input-group input:focus {
+  border-color: #0076bb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 118, 187, 0.2);
+}
+
+.total {
+  margin: 1.5rem 0;
+  font-size: 1.5rem;
+  color: #006400;
+  text-align: center;
+  font-weight: bold;
+}
+
+.recharts-wrapper {
+  margin-top: 2rem;
+}
