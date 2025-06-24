@@ -1,6 +1,8 @@
 // SavingsCalculatorIsland.jsx
 import { useState } from 'react';
 import {
+    AreaChart,
+    Area,
     BarChart,
     Bar,
     XAxis,
@@ -34,6 +36,9 @@ export default function SavingsCalculatorIsland({ headline, description, service
         savings: monthlySavings * (i + 1),
     }));
 
+    const maxSavings = data[data.length - 1]?.savings || 0;
+    const yAxisMax = Math.max(3000, Math.ceil(maxSavings / 1000) * 1000);
+
     return (
         <div className="savings-calculator">
             <h2>{headline}</h2>
@@ -55,14 +60,27 @@ export default function SavingsCalculatorIsland({ headline, description, service
                 Estimated Annual Savings: ${totalSavings.toLocaleString()}
             </p>
 
-            <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={data}>
+            <ResponsiveContainer
+                width="100%"
+                height={300}
+            >
+                <AreaChart
+                    data={data}
+                    margin={{
+                        top: 10,
+                        right: 40,
+                        left: 0,
+                        bottom: 0,
+                    }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="month" />
-                    <YAxis />
+                    <YAxis
+                        tickFormatter={(value) => `$${value.toLocaleString()}`}
+                        domain={[0, yAxisMax]}
+                    />
                     <Tooltip />
-                    <Bar dataKey="savings" fill="#0076bb" />
-                </BarChart>
+                    <Area type="monotone" dataKey="savings" stroke="#82ca9d" fill="#82ca9d" />
+                </AreaChart>
             </ResponsiveContainer>
         </div>
     );
