@@ -10,14 +10,7 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 
-const SERVICES = [
-    { label: 'Insurance', value: 40 },
-    { label: 'Phone and Internet', value: 50 },
-    { label: 'Shipping Services', value: 100 },
-    { label: 'Legal Aid', value: 120 },
-];
-
-export default function SavingsCalculatorIsland() {
+export default function SavingsCalculatorIsland({ headline, description, services }) {
     const [selectedServices, setSelectedServices] = useState([]);
 
     const toggleService = (label) => {
@@ -28,8 +21,8 @@ export default function SavingsCalculatorIsland() {
         );
     };
 
-    const monthlySavings = selectedServices.reduce((sum, label) => {
-        const service = SERVICES.find((s) => s.label === label);
+    const monthlySavings = selectedServices.reduce((sum, name) => {
+        const service = services.find((s) => s.service_name === name);
         return sum + (service ? service.value : 0);
     }, 0);
 
@@ -43,17 +36,17 @@ export default function SavingsCalculatorIsland() {
 
     return (
         <div className="savings-calculator">
-            <h2>Estimate Your Yearly Savings</h2>
-            <p>Select services that your business is currently paying for. This tool will estimate potential savings could receive as a member of CFIB.</p>
+            <h2>{headline}</h2>
+            <p>{description}</p>
             <div className="savings-calculator__inputs">
-                {SERVICES.map(({ label, value }) => (
-                    <label key={label} className="savings-calculator__checkbox">
+                {services.map(({ service_name }) => (
+                    <label key={service_name} className="savings-calculator__checkbox">
                         <input
                             type="checkbox"
-                            checked={selectedServices.includes(label)}
-                            onChange={() => toggleService(label)}
+                            checked={selectedServices.includes(service_name)}
+                            onChange={() => toggleService(service_name)}
                         />
-                        {label}
+                        {service_name}
                     </label>
                 ))}
             </div>

@@ -16,6 +16,10 @@
   text-align: center;
 }
 
+.savings-calculator p {
+  font-size: 1.5rem;
+}
+
 .savings-calculator__inputs {
   display: flex;
   flex-direction: column;
@@ -29,16 +33,16 @@
   gap: 0.75rem;
 }
 
-.savings-calculator__checkbox-label {
-  font-weight: 500;
+.savings-calculator__checkbox {
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
 }
 
-.savings-calculator__checkbox-label input[type="checkbox"] {
-  transform: scale(1.2);
+.savings-calculator input[type="checkbox"] {
+  transform: scale(1.5);
   accent-color: #0076bb;
 }
 

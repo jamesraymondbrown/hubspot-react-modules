@@ -38,7 +38,7 @@ cd cfib-hubspot-modules
 npm install
 ```
 
-### Run local dev server
+### Run local dev server, from within /cfib-hubspot-modules
 
 ```bash
 npm run start
